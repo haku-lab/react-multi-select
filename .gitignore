@@ -6,7 +6,6 @@
 .idea
 npm-debug.log
 node_modules
-dist
 out
 coverage
 test/report.xml
