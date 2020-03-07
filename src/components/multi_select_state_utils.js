@@ -48,7 +48,6 @@ export const getNewSelectedItems = (
 ) => {
   let alreadySelectedItems = [];
   let sourceItems = [];
-  let destinationItems = [];
 
   if (keepSelectionOrder) {
     // In order to keep selection order on the list,
@@ -56,6 +55,9 @@ export const getNewSelectedItems = (
     alreadySelectedItems = selectedItems.filter(item => findItem(item, items));
     sourceItems = items.filter(item => item.id === itemId);
   } else {
+    alreadySelectedItems = selectedItems.filter(
+      selectedItem => !findItem(selectedItem, items)
+    );
     sourceItems = items.filter(
       item => item.id === itemId || findItem(item, selectedItems)
     );
